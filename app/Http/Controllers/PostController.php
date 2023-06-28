@@ -15,8 +15,11 @@ class PostController extends Controller
 
     public function index(User $user)
     {
+        // no se puede paginar
         // $posts = $user->posts;
-        $posts = Post::where('user_id', $user->id)->get();
+
+        // si se puede paginar
+        $posts = Post::where('user_id', $user->id)->paginate(8);
 
         return view('dashboard', [
             'user' => $user,

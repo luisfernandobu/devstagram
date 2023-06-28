@@ -44,6 +44,10 @@ Perfil: {{ $user->username }}
                 </div>
             @endforeach
         </div>
+
+        <div class="m-5">
+            {{ $posts->links() }}
+        </div>
     @else
         <p class="text-center text-gray-600 text-sm">Sin publicaciones para mostrar</p>
     @endif
