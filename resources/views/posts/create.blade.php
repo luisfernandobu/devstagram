@@ -49,11 +49,9 @@ Crea una nueva publicación
                 <textarea
                     name="description"
                     id="description"
-                    placeholder="Decripción de la publicación"
+                    placeholder="Descripción de la publicación"
                     class="border p-2 w-full rounded-lg @error('description') border-red-500 @enderror"
-                >
-                    {{ old('description') }}
-                </textarea>
+                >{{ old('description') }}</textarea>
                 @error('description')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
                 @enderror
