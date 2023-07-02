@@ -3,8 +3,14 @@
 /public/build
 /public/hot
 /public/storage
-/public/uploads/*
-/public/profiles/*
+/public/uploads/*.jpg
+/public/uploads/*.jpeg
+/public/uploads/*.png
+/public/uploads/*.gif
+/public/profiles/*.jpg
+/public/profiles/*.jpeg
+/public/profiles/*.png
+/public/profiles/*.gif
 /storage/*.key
 /vendor
 .env
