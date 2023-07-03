@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
@@ -21,11 +23,10 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('principal');
-});
-
 // NOTA: Colocar siempre rutas de variables hasta el final
+
+// ruta principal o home
+Route::get('/', HomeController::class)->name('home');
 
 // registro, login y logout
 Route::get('register', [RegisterController::class, 'index'])->name('register');
@@ -53,4 +54,6 @@ Route::post('{user:username}/posts/{post}', [CommentController::class, 'store'])
 Route::post('posts/{post}/likes', [LikeController::class, 'store'])->name('posts.likes.store');
 Route::delete('posts/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes.destroy');
 
-// TODO: Crear funcionalidad para cambio de passwordd
+// funcionalidad de seguir usuarios
+Route::post('{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
+Route::delete('{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
