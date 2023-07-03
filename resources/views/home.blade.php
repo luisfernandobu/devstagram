@@ -12,11 +12,11 @@
                     <a href="{{ route('posts.show', ['user' => $post->user, 'post' => $post]) }}">
                         <img src="{{ asset('uploads') . '/' . $post->image }}" alt="Imagen de post {{ $post->title }}">
                     </a>
-                    <p class="mt-1">
+                    <p class="mt-1 px-1">
                         <a href="{{ route('posts.index', $post->user) }}" class="font-bold">{{ $post->user->username }}</a>
                          {{ $post->title }}
                     </p>
-                    <p class="text-gray-600 text-sm">{{ $post->created_at->diffForHumans() }}</p>
+                    <p class="text-gray-600 text-sm px-1">{{ $post->created_at->diffForHumans() }}</p>
                 </div>
             @endforeach
         </div>
