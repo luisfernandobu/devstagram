@@ -5,13 +5,15 @@
 @endsection
 
 @section('contenido')
-    <div class="md:flex">
+    <div class="md:flex gap-4">
         <div class="md:w-1/2">
             <img src="{{ asset('uploads').'/'.$post->image }}" alt="Imagen de post {{$post->title}}">
 
             <div class="p-3 flex items-center gap-4">
                 @auth
 
+                    <livewire:like-post :post="$post"/>
+                    {{--
                     @if ($post->ckeckLike(Auth::user()))
                         <form action="{{ route('posts.likes.destroy', $post) }}" method="POST">
                             @method('DELETE')
@@ -36,9 +38,11 @@
                             </div>
                         </form>
                     @endif
-
+                    --}}
                 @endauth
-                <p><span class="font-bold">{{ $post->likes()->count() }}</span> Likes</p>
+                @guest
+                    <p><span class="font-bold">{{ $post->likes()->count() }}</span> Likes</p>
+                @endguest
             </div>
 
             <div class="">
